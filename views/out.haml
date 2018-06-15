@@ -1,0 +1,11 @@
+%table{:border => 1}
+  %tbody
+    %tr
+      %td Driver:
+      %td Miles Driven:
+      %td Speed:
+    - locals[:drivers].each do |driver|
+      %tr
+        %td= driver.name
+        %td= driver.total_distance
+        %td= driver.avg_speed
