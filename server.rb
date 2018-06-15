@@ -4,8 +4,7 @@ require 'haml'
 require_relative 'driver'
 require_relative 'trip'
 
-drivers = []
-trips = []
+
 
 get '/' do
   haml :index
@@ -22,7 +21,8 @@ post '/out' do
   STDERR.puts "Uploading file, original name #{name.inspect}"
   while blk = tmpfile.read(65536)
     arr = blk.split("\n").select{ |x| x.size!= 1}.map{ |x| x.chomp}
-
+    drivers = []
+    trips = []
     arr.each do |line|
       if line.index('Driver') == 0
         d = Driver.new(line.split(" ")[1..line.split(" ").length].join(" "))
