@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'haml'
-# require 'time'
 require_relative 'driver'
 require_relative 'trip'
 
